@@ -43,8 +43,8 @@ if (mysqli_num_rows($result) > 0) {
 </head>
 
 <body>
-    <a href="create.php">Create Event</a>
     <div class="container">
+        <a href="create.php" class="btn btn-success">Create Event</a>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
             <?= $layout ?>
         </div>
