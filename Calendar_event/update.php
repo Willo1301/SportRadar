@@ -8,12 +8,23 @@ $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
 if (isset($_POST['submit'])) {
-    $event_name = $_POST['event_name'];
+    $event_name = trim($_POST['event_name']);
+    $event_name = strip_tags($event_name);
+    $event_name = htmlspecialchars($event_name);
+
     $date = $_POST['date'];
     $time = $_POST['time'];
-    $day = $_POST['day'];
-    $sport = $_POST['sport'];
-    $img = $_POST['img'];
+    $day = trim($_POST['day']);
+    $day = strip_tags($day);
+    $day = htmlspecialchars($day);
+
+    $sport = trim($_POST['sport']);
+    $sport = strip_tags($sport);
+    $sport = htmlspecialchars($sport);
+
+    $img = trim($_POST['img']);
+    $img = strip_tags($img);
+    $img = htmlspecialchars($img);
 
 
     if (empty($img)) {
