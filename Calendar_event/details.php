@@ -23,6 +23,8 @@ if (mysqli_num_rows($result) > 0) {
             <li class='list-group-item'>{$row['time']}</li>
         </ul>
   <div class='card-body'>
+    <a href='update.php?id={$row['event_id']}' class='btn btn-success'>Update</a>
+    <a href='delete.php?id={$row["event_id"]}' class='btn btn-danger'>Delete</a>
     <a href='index.php' class='btn btn-secondary'>Back</a>
   </div>
 </div>
