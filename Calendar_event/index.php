@@ -2,9 +2,24 @@
 
 require_once "db_connect.php";
 
-$sql = "SELECT * FROM `event`";
 
+$sort = $_GET['sort'] ?? '';
+$order = $_GET['order'] ?? 'asc';
+
+$nextOrder = ($order === 'asc') ? 'desc' : 'asc';
+
+$sortQuery = "";
+if ($sort === "sport") {
+    $sortQuery = "ORDER BY sport " . strtoupper($order);
+} elseif ($sort === "date") {
+    $sortQuery = "ORDER BY time " . strtoupper($order);
+}
+
+$sql = "SELECT * FROM `event` $sortQuery";
 $result = mysqli_query($conn, $sql);
+
+
+
 
 $layout = "";
 
@@ -71,11 +86,25 @@ if (mysqli_num_rows($result) > 0) {
                                         Sort By
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Sport</a></li>
+                                        <li>
+                                            <a class="dropdown-item" href="?sort=sport&order=<?= $nextOrder ?>">
+                                                Sport
+                                                <?php if ($sort === 'sport'): ?>
+                                                    <?= $order === 'asc' ? '↑' : '↓' ?>
+                                                <?php endif; ?>
+                                            </a>
+                                        </li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item" href="#">Date</a></li>
+                                        <li>
+                                            <a class="dropdown-item" href="?sort=date&order=<?= $nextOrder ?>">
+                                                Date
+                                                <?php if ($sort === 'date'): ?>
+                                                    <?= $order === 'asc' ? '↑' : '↓' ?>
+                                                <?php endif; ?>
+                                            </a>
+                                        </li>
                                     </ul>
                         </li>
                     </ul>
@@ -87,11 +116,6 @@ if (mysqli_num_rows($result) > 0) {
             </div>
         </nav>
     </div>
-
-
-
-
-
 
 
 

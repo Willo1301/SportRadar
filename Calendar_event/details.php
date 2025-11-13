@@ -11,7 +11,7 @@ $layout = '';
 if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
     $layout = "
-    <div class='card' style='width: 18rem;'>
+    <div class='card text-center my-5' style='width: 25rem';'>
         <img src='{$row['img']}' class='card-img-top' alt='{$row['event_name']}'>
         <div class='card-body'>
             <h5 class='card-title'>{$row['event_name']}</h5>
@@ -82,15 +82,6 @@ if (mysqli_num_rows($result) > 0) {
     </div>
 
 
-
-
-
-
-
-
-
-
-
     <div class="container">
         <div class="row">
             <div class="col col-md-6 mx-auto">
@@ -113,12 +104,6 @@ if (mysqli_num_rows($result) > 0) {
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-
-
-
-
-
-
 
 </body>
 
