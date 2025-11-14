@@ -19,3 +19,6 @@ The idea was to make the website easy to use. Be able to create or deleate or up
 To make it look better, i used bootstrap and some css to polish the header and the footer.
 
 I had some tasks to complete, and made the project according to those tasks.
+
+
+The only use of AI in this project was to create the "sort" button.
