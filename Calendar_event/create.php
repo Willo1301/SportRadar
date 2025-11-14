@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
     <div class="navbar">
         <nav class="navbar navbar-expand-lg bg-body-tertiary navbar bg-dark border-bottom border-body" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">My Event Calendar</a>
+                <a class="navbar-brand" href="index.php">My Event Calendar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -98,16 +98,6 @@ if (isset($_POST['submit'])) {
             </div>
         </nav>
     </div>
-
-
-
-
-
-
-
-
-
-
 
 
     <div class="container">
@@ -161,8 +151,6 @@ if (isset($_POST['submit'])) {
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-
-
 
 </body>
 
