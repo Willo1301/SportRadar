@@ -12,7 +12,7 @@ $sortQuery = "";
 if ($sort === "sport") {
     $sortQuery = "ORDER BY sport " . strtoupper($order);
 } elseif ($sort === "date") {
-    $sortQuery = "ORDER BY time " . strtoupper($order);
+    $sortQuery = "ORDER BY date " . strtoupper($order);
 }
 
 $sql = "SELECT * FROM `event` $sortQuery";
@@ -27,14 +27,18 @@ if (mysqli_num_rows($result) > 0) {
     $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     foreach ($rows as $row) {
+
+        $formattedDate = date("d-m-Y", strtotime($row["date"]));
+        $formattedTime = date("H:i", strtotime($row["time"]));
+
         $layout .= "
         <div>
             <div class= 'card text-center my-3'>
                 <img src='{$row['img']}' class='card-img-top' alt='{$row['event_name']}'>
                 <div class='card-body'>
                     <h5 class='card-title'>{$row["event_name"]}</h5>
-                    <p class='card-text'>{$row["time"]}<p/>
-                    <p class='card-text'>{$row["sport"]}<p/>
+                    <p class='card-text'>Date: " . $formattedDate . "</p>
+                    <p class='card-text'>Time: " . $formattedTime . "</p>
                     <a href= 'details.php?id={$row["event_id"]}' class='btn btn-primary'> Event Details </a>
                 </div>
             </div>

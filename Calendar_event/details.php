@@ -7,9 +7,16 @@ $url_id = $_GET["id"];
 $sql = "SELECT * FROM event WHERE event_id = {$url_id}";
 $result = mysqli_query($conn, $sql);
 
+
 $layout = '';
 if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
+
+    $formattedDate = date("d-m-Y", strtotime($row["date"]));
+    $formattedTime = date("H:i", strtotime($row["time"]));
+
+
+
     $layout = "
     <div class='card text-center my-5' style='width: 25rem';'>
         <img src='{$row['img']}' class='card-img-top' alt='{$row['event_name']}'>
@@ -19,8 +26,8 @@ if (mysqli_num_rows($result) > 0) {
     </div>
         <ul class='list-group list-group-flush'>
             <li class='list-group-item'>{$row['day']}</li>
-            <li class='list-group-item'>{$row['date']}</li>
-            <li class='list-group-item'>{$row['time']}</li>
+            <li class='list-group-item'>Date: " . $formattedDate . "</li>
+            <li class='list-group-item'>Time: " . $formattedTime . "</li>
         </ul>
   <div class='card-body'>
     <a href='update.php?id={$row['event_id']}' class='btn btn-success'>Update</a>
