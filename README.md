@@ -3,7 +3,7 @@ BACK END TASK.
 HOW TO USE : 
 
 ° download file project.
-° With xamp export database from the project file.
+° With xamp export database named "sport_event.sql" from the project file.
 ° Open the project file with Virtual Studio Code.
 
 
