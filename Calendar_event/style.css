@@ -5,12 +5,9 @@
     height: 5rem;
 }
 
-#heroLinks{
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    font-weight: bold;
-    justify-content: space-around;
-    padding-top: 2rem;
+.card-img-top {
+    height: 400px;
+    object-fit: cover;
+    width: 100%;
 }
+

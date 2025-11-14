@@ -124,7 +124,7 @@ if (mysqli_num_rows($result) > 0) {
 
 
     <div class="container">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
             <?= $layout ?>
         </div>
     </div>

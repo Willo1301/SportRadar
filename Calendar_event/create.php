@@ -4,36 +4,51 @@ require_once 'db_connect.php';
 
 if (isset($_POST['submit'])) {
 
-    $event_name = trim($_POST["event_name"]);
-    $event_name = strip_tags($event_name);
-    $event_name = htmlspecialchars($event_name);
+    if (
+        empty($_POST["event_name"]) ||
+        empty($_POST["date"]) ||
+        empty($_POST["time"]) ||
+        empty($_POST["day"]) ||
+        empty($_POST["sport"])
+    ) {
+        echo "<div class='alert alert-danger' role='alert'>
+            All fields are required!
+        </div>";
+    } else {
 
-    $date = $_POST['date'];
-    $time = $_POST['time'];
 
-    $day = trim($_POST['day']);
-    $day = strip_tags($day);
-    $day = htmlspecialchars($day);
+        $event_name = trim($_POST["event_name"]);
+        $event_name = strip_tags($event_name);
+        $event_name = htmlspecialchars($event_name);
 
-    $sport = trim($_POST['sport']);
-    $sport = strip_tags($sport);
-    $sport = htmlspecialchars($sport);
+        $date = $_POST['date'];
+        $time = $_POST['time'];
 
-    $img = trim($_POST['img']);
-    $img = strip_tags($img);
-    $img = htmlspecialchars($img);
+        $day = trim($_POST['day']);
+        $day = strip_tags($day);
+        $day = htmlspecialchars($day);
 
-    $sql = "INSERT INTO `event`(`event_name`, `date`, `time`, `day`, `sport`, `img`) VALUES ('$event_name','$date','$time','$day','$sport','$img')";
+        $sport = trim($_POST['sport']);
+        $sport = strip_tags($sport);
+        $sport = htmlspecialchars($sport);
 
-    $result = mysqli_query($conn, $sql);
-    if ($result) {
-        echo "<div class='alert alert-success' role='alert'>
+        $img = trim($_POST['img']);
+        $img = strip_tags($img);
+        $img = htmlspecialchars($img);
+
+        $sql = "INSERT INTO `event`(`event_name`, `date`, `time`, `day`, `sport`, `img`) VALUES ('$event_name','$date','$time','$day','$sport','$img')";
+
+        $result = mysqli_query($conn, $sql);
+
+        if ($result) {
+            echo "<div class='alert alert-success' role='alert'>
                     New event has been created ! 
                 </div>";
-    } else {
-        echo "<div class='alert alert-danger' role='alert'>
+        } else {
+            echo "<div class='alert alert-danger' role='alert'>
                     Something went wrong ! 
                 </div>";
+        }
     }
 }
 
@@ -102,23 +117,23 @@ if (isset($_POST['submit'])) {
                 <form method="POST">
                     <div class="mb-3">
                         <label for="event_name" class="form-label">Event name</label>
-                        <input type="text" id="event_name" name="event_name" class="form-control">
+                        <input type="text" id="event_name" name="event_name" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="date" class="form-label">Date</label>
-                        <input type="date" id="date" name="date" class="form-control">
+                        <input type="date" id="date" name="date" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="time" class="form-label">Time</label>
-                        <input type="time" id="time" name="time" class="form-control">
+                        <input type="time" id="time" name="time" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="day" class="form-label">Day</label>
-                        <input type="text" id="day" name="day" class="form-control">
+                        <input type="text" id="day" name="day" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="sport" class="form-label">Sport</label>
-                        <input type="text" id="sport" name="sport" class="form-control">
+                        <input type="text" id="sport" name="sport" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="img" class="form-label">Image</label>

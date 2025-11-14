@@ -8,6 +8,7 @@ $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
 if (isset($_POST['submit'])) {
+
     $event_name = trim($_POST['event_name']);
     $event_name = strip_tags($event_name);
     $event_name = htmlspecialchars($event_name);
@@ -44,6 +45,7 @@ if (isset($_POST['submit'])) {
                 </div>";
     }
 }
+
 
 ?>
 
@@ -94,10 +96,6 @@ if (isset($_POST['submit'])) {
     </div>
 
 
-
-
-
-
     <div class="container">
         <div class="row">
             <div class="col col-md-6 mx-auto">
@@ -106,27 +104,27 @@ if (isset($_POST['submit'])) {
                     <div class="mb-3">
                         <label for="event_name" class="form-label">Event name</label>
                         <input type="text" id="event_name" name="event_name" class="form-control"
-                            value="<?= $row['event_name'] ?>">
+                            value="<?= $row['event_name'] ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="date" class="form-label">Date</label>
                         <input type="date" id="date" name="date" class="form-control"
-                            value="<?= $row['date'] ?>">
+                            value="<?= $row['date'] ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="time" class="form-label">Time</label>
                         <input type="time" id="time" name="time" class="form-control"
-                            value="<?= $row['time'] ?>">
+                            value="<?= $row['time'] ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="day" class="form-label">Day</label>
                         <input type="text" id="day" name="day" class="form-control"
-                            value="<?= $row['day'] ?>">
+                            value="<?= $row['day'] ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="sport" class="form-label">Sport</label>
                         <input type="text" id="sport" name="sport" class="form-control"
-                            value="<?= $row['sport'] ?>">
+                            value="<?= $row['sport'] ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="img" class="form-label">Image</label>
@@ -155,10 +153,6 @@ if (isset($_POST['submit'])) {
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-
-
-
-
 
 </body>
 
