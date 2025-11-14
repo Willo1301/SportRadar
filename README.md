@@ -20,5 +20,6 @@ To make it look better, i used bootstrap and some css to polish the header and t
 
 I had some tasks to complete, and made the project according to those tasks.
 
+If i had more time, i would make a better "details page". With team's players, venue, etc.. 
 
 The only use of AI in this project was to create the "sort" button.
